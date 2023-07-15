@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-def multiple_returns(sentence):
-    # return the lenth of the sentence
-    if len(sentence) == 0:
-        Length = 0
-        first_char = 'None'
-    else:
-        first_char = sentence[0]
-        Length = len(sentence)
-    return(Length, first_char)
+def max_integer(my_list=[]):
+    """Returns maximum integer in list"""
+    if not my_list:
+        return None
+    #the proper function
+    max_int = my_list[0] 
+    for i in my_list:
+        if i > max_int:
+            max_int = i
+    return max_int
