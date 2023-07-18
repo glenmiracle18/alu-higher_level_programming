@@ -7,7 +7,7 @@ def best_score(a_dictionary):
         for k, v in a_dictionary.items():
             values.append(v)
         max_val = max(values)
-        name=' '
+        name=''
         for n, s in a_dictionary.items():
                 if s == max_val:
                     name += str(n)
