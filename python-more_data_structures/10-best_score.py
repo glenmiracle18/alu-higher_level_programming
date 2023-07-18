@@ -9,6 +9,6 @@ def best_score(a_dictionary):
         max_val = max(values)
         name=''
         for n, s in a_dictionary.items():
-                if s == max_val:
-                    name += str(n)
+            if s == max_val:
+                name += str(n)
         return name
