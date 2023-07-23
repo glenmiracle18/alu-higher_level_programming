@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+#0-square.py by Glen Miracle
+"""Define a class called square"""
+
 class Square:
-    """a class that does nothing"""
-    def __init__(self):
-        """initialization"""
-        pass
+   """Represent a square"""
+   pass
