@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-#0-square.py by Glen Miracle
-"""Define a class called square"""
+# 0-square.py by Glen Miracle
+"""Defines a square """
+
 
 class Square:
-   """Represent a square"""
-   pass
+    """Does nothing"""
+    pass
