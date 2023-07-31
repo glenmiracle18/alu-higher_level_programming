@@ -5,5 +5,5 @@
 
 CREATE TABLE first_table (
 	name INT,
-	name VARCHAR(256),
+	name VARCHAR(256)
 );
