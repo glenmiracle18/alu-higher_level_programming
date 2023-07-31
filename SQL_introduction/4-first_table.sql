@@ -3,9 +3,4 @@
 -- database name will be passed as an argument
 -- not allowed to use SELECT or SHOW statements
 
-USE '?';
-
-CREATE TABLE IF NOT EXIST first_table (
-	name INT,
-	name VARCHAR(256)
-);
+CREATE TABLE IF NOT EXIST first_table (id INT, name VARCHAR(256));
