@@ -3,7 +3,7 @@
 -- database name will be passed as an argument
 -- not allowed to use SELECT or SHOW statements
 
-CREATE TABLE first_table (
+CREATE TABLE IF NOT EXIST first_table (
 	name INT,
 	name VARCHAR(256)
 );
