@@ -2,6 +2,4 @@
 -- The database name will be passed as an argument of the mysql command
 -- You are not allowed to use the DESCRIBE or EXPLAIN statements
 
-SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_DEFAULT, COLUMN_KEY, EXTRA
-FROM INFORMATION.SCHEMA.COLUMNS
-WHERE TABLE_NAME = 'first_table';
+SHOW CREATE TABLE first_table;
