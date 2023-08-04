@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-# python that fetches a request from a url
+"""python that fetches a request from a url"""
 import urllib.request
-with urllib.request.urlopen('https://alu-intranet.hbtn.io/status') as response:
+
+req = urllib.request.Request('https://alu-intranet.hbtn.io/status')
+with urllib.request.urlopen(req) as response:
     data = response.read()
-    
     print("Body response:")
     print("\t- type: {}".format(type(data)))
     print("\t- content: {}".format(data))
