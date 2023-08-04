@@ -2,6 +2,7 @@
 """ module url requests"""
 import urllib.request
 import sys
+import urllib.error
 
 
 if __name__ == "__main__":
@@ -12,6 +13,6 @@ if __name__ == "__main__":
             data = response.read().decode('utf-8')
             print(data)
     except urllib.error.HTTPError as e:
-        print("Error code: {}".format(e.code()))
+        print("Error code: {}".format(e.code))
     except urllib.error.URLError as e:
         print("URL Error: ".format(e.reason))
