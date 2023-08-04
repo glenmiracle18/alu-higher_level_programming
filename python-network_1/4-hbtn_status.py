@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """ module url requests"""
-import urllib.request
+import requests
 
 if __name__ == "__main__":
-    with urllib.request.urlopen("https://alu-intranet.hbtn.io/status") as response:
-        data = response.read()
-        print('Body response:')
-        print("\t- type: {}".format(type(data)))
-        print("\t- content: {}".format(data))
+    r = requests.get("https://alu-intranet.hbtn.io/status")
+    print('Body response:')
+    print("\t- type: {}".format(type(r.text)))
+    print("\t- content: {}".format(r.text))
