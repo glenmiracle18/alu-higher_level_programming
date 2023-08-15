@@ -22,7 +22,7 @@ def matrix_divided(matrix, div):
         TypeError: div must be a number (int or float)
         ZeroDivisionError: div can't be equal to zero
 
-    All elements of the matrix divided by div should be rounded 
+    All elements of the matrix divided by div should be rounded
 
     Returns:
         a matrix of the same lenght as the original, where each
