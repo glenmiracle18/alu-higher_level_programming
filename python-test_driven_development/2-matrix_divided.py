@@ -11,21 +11,21 @@ def matrix_divided(matrix, div):
     """
 
     a function that returns a divided matrix
-    
+
     Args:
         matrix: a matrix of equal length
         div: the number that the matrix will be deivided by
 
     Raises:
         TyeError: matrix must a list of integers or floats
-        TypeError: Each row of the matrix must be of the same size as the original
+        TypeError: Each row of the matrix must be of
         TypeError: div must be a number (int or float)
         ZeroDivisionError: div can't be equal to zero
 
-    All elements of the matrix divided by div should be rounded to 2 decimal places.
+    All elements of the matrix divided by div should be rounded 
 
     Returns:
-        a matrix of the same lenght as the original, where each item has been divided by the dix
+        a matrix of the same lenght as the original, where each
 
 """
 
@@ -53,6 +53,3 @@ def matrix_divided(matrix, div):
         new_matrix.append(new_row)
 
     return new_matrix
-
-
-
