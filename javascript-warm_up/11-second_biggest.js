@@ -1,21 +1,15 @@
 #!/usr/bin/node
-const arguments = process.argv;
+const args = process.argv;
 const scriptArgs = [];
-for (let i = 2; i < arguments.length; i++) {
-   scriptArgs.push(arguments[i]); 
+for (let i = 2; i < args.length; i++) {
+  scriptArgs.push(args[i]);
 }
 const intArgs = scriptArgs.map(item => parseInt(item, 10));
 // console.log(intArgs);
-const sortedArgs = intArgs.sort();
-// console.log(sortedArgs)
-intArgs.pop();
-const secondHighest = intArgs[intArgs.length - 1];
-console.log(secondHighest)
-
-// if (arguments.length === 2) {
-//   console.log(0);
-// } else if (arguments[2] = 1) {
-//     console.log(0);
-// } else {
-//     console.log(secondHighest)
-// }
+const sortedArgs = intArgs.sort((a, b) => b - a);
+const secondLargest = sortedArgs[1];
+if (args.length <= 2) {
+  console.log(0);
+} else {
+  console.log(secondLargest);
+}
