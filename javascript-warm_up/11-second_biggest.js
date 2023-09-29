@@ -8,7 +8,7 @@ const intArgs = scriptArgs.map(item => parseInt(item, 10));
 // console.log(intArgs);
 const sortedArgs = intArgs.sort();
 // console.log(sortedArgs)
-// intArgs.pop();
+intArgs.pop();
 const secondHighest = intArgs[intArgs.length - 1];
 console.log(secondHighest)
 
