@@ -3,7 +3,7 @@ const firstArgument = process.argv[2];
 const parsedNumber = parseInt(firstArgument);
 
 function factorial (a) {
-  if (isNaN(parsedNumber)) {
+  if (isNaN(parsedNumber) && parsedNumber === 'undefined') {
     console.log(1);
   } else {
     let res = 1;
