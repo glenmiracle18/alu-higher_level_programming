@@ -86,13 +86,38 @@
 
 
 
-function createPerson(name) {
-    const obj = {};
-    obj.name = name;
-    obj.introduceSelf = function () {
+// function createPerson(name) {
+//     const obj = {};
+//     obj.name = name;
+//     obj.introduceSelf = function () {
+//         console.log(`Hi! I'm ${this.name}.`);
+//     };
+//     return obj;
+// }
+// // createPerson('Glen').introduceSelf();
+// // console.log(createPerson('Glen').name);
+
+// const salva = createPerson("Salva");
+// console.log(salva.name);
+// salva.introduceSelf()
+
+// const frankie = createPerson("Frankie");
+// console.log(frankie.name);
+// frankie.introduceSelf()
+
+
+// constructor function
+function Person(name) {
+    this.name = name;
+    this.introduceSelf = function () {
         console.log(`Hi! I'm ${this.name}.`);
     };
-    return obj;
 }
-createPerson('Glen').introduceSelf();
-console.log(createPerson('Glen').name);
+ /// we use 'new' to call the constructor
+ const salva = new Person("Salva");
+ salva.name;
+ salva.introduceSelf();
+
+ const glen = new Person("Glen");
+ glen.name;
+ glen.introduceSelf();
