@@ -5,6 +5,6 @@ const filepath = process.argv[2];
 try {
   const data = fs.readFileSync(filepath, 'utf-8');
   console.log(data);
-} catch {
+} catch (error) {
   console.error(error);
 }
