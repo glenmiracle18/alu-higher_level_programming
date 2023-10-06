@@ -11,7 +11,7 @@ request(requestURL, function (error, response, body) {
 
     // console.log(movieIData.title);
     movieIData.characters.forEach((characterURL1) => {
-      request.get(characterURL1, (charError, charaterResponse, charBody) => {
+      request(characterURL1, (charError, charaterResponse, charBody) => {
         if (charError) {
           console.error(error);
         } else if (charaterResponse.statusCode === 200) {
