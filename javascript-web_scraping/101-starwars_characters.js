@@ -1,26 +1,108 @@
-#!/usr/bin/node
-const movieID = process.argv[2];
+// #!/usr/bin/node
+// const movieID = process.argv[2];
+// const request = require('request');
+// const requestURL = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
+
+// request(requestURL, function (error, response, body) {
+//   if (error) {
+//     console.error(error);
+//   } else if (response.statusCode === 200) {
+//     const movieIData = JSON.parse(body);
+
+//     // console.log(movieIData.title);
+//     movieIData.characters.forEach((characterURL1) => {
+//       request(characterURL1, (charError, charaterResponse, charBody) => {
+//         if (charError) {
+//           console.error(error);
+//         } else if (charaterResponse.statusCode === 200) {
+//           const characterData = JSON.parse(charBody);
+//           console.log(characterData.name);
+//         }
+//       });
+//     });
+//   } else {
+//     console.log(response.statusCode);
+//   }
+// });
+
+// #!/usr/bin/node
+/*
 const request = require('request');
-const requestURL = `https://swapi-api.alx-tools.com/api/films/${movieID}`;
+const args = process.argv;
+let dicList = {};
 
-request(requestURL, function (error, response, body) {
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+request(`https://swapi-api.hbtn.io/api/films/${args[2]}`, function (error, response, body) {
   if (error) {
-    console.error(error);
-  } else if (response.statusCode === 200) {
-    const movieIData = JSON.parse(body);
-
-    // console.log(movieIData.title);
-    movieIData.characters.forEach((characterURL1) => {
-      request(characterURL1, (charError, charaterResponse, charBody) => {
-        if (charError) {
-          console.error(error);
-        } else if (charaterResponse.statusCode === 200) {
-          const characterData = JSON.parse(charBody);
-          console.log(characterData.name);
+    console.log(error);
+  } else {
+    const data = JSON.parse(body);
+    const charEnd = data.characters;
+    const loopTime = charEnd.length;
+    for (let i = 0; i < loopTime; i++) {
+      request(charEnd[i], function (error, response, body) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(JSON.parse(body).name);
+          dicList[JSON.parse(body).name] = i;
         }
       });
+        sleep(8000);
+    }
+    console.log(dicList);
+  }
+});
+*/
+
+const request = require('request');
+const { argv, exit } = require('process');
+
+if (argv.length !== 3) {
+  exit(0);
+}
+
+const options = {
+  url: `https://swapi-api.hbtn.io/api/films/${argv[2]}/`,
+  method: 'GET',
+  headers: {
+    'Accept-Charset': 'utf-8'
+  }
+};
+
+function requestStart (optionsUrl, saveValue) {
+  request(optionsUrl, function (err, res, body) {
+    if (err) throw err;
+
+    const characters = JSON.parse(body).characters;
+    const result = {};
+
+    characters.forEach(element => {
+      request(element, function (err, res, _body) {
+        if (err) throw err;
+
+        const name = JSON.parse(_body).name;
+
+        result[element.split('/')[5]] = name;
+        saveValue(result, characters.length);
+      });
     });
-  } else {
-    console.log(response.statusCode);
+  });
+}
+
+let i = 0;
+requestStart(options, function (dict, length) {
+  i++;
+  if (i === length) {
+    for (const name in dict) {
+      console.log(dict[name]);
+    }
   }
 });
