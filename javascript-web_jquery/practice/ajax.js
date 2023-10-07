@@ -6,7 +6,6 @@
 //     });
 // });
 
-$(function()
-{
-    $("#divTest").text("Text");
+$(function () {
+  $('#divTest').text('Text');
 });
